@@ -10,9 +10,10 @@ public class DatabaseFixture : IAsyncLifetime
     {
         var mssqlConfiguration = new MsSqlTestcontainerConfiguration() { Password = "Q1w@e345678" };
         MsSqlContainer = new TestcontainersBuilder<MsSqlTestcontainer>()
-          .WithDatabase(mssqlConfiguration)
-          .Build();
-
+            .WithDatabase(mssqlConfiguration)
+            .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
+            .WithCleanUp(true)
+            .Build();
     }
     public async Task InitializeAsync()
     {

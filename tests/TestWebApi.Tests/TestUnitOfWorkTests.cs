@@ -24,7 +24,7 @@ public class TestUnitOfWorkTests : IClassFixture<DatabaseFixture>
         builder.UseInternalServiceProvider(serviceProvider);
         _builderOptions = builder.Options;
         _testService = new TestUnitOfWork(NewTestContext);
-        NewTestContext.Database.EnsureDeleted();
+        // NewTestContext.Database.EnsureDeleted();
         NewTestContext.Database.EnsureCreated();
     }
     [Fact]
